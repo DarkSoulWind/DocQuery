@@ -1,0 +1,37 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    {% tailwind_css %}
+    <title>{% block title %}Doc Query{% endblock %}</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		{% tailwind_css %}
+	</head>
+
+	<body>
+    <!-- NAVBAR -->
+    <header id="navbar" class="w-full fixed bg-gray-900 text-white flex justify-between items-center px-4 py-5">
+      <div>
+          <a href="/doc-query/">DocQuery</a>
+      </div>
+      <div>
+        {% if user.is_authenticated %}
+          <a class="hover:text-blue-400" href="/doc-query/logout">Logout</a>
+        {% else %}
+          <a class="hover:text-blue-400" href="/doc-query/login">Login</a>
+        {% endif %}
+      </div>
+    </header>
+
+    <!-- BACKGROUND -->
+    <div class="fixed w-screen h-screen -z-50 bg-gradient-to-b from-cyan-300/75 to-pink-400/75"></div>
+
+    <div id="content" class="pt-[5rem]">
+      {% block content %}{% endblock %}
+    </div>
+
+    {% block scripts %}{% endblock %}
+  </body>
+</html>

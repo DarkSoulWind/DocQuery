@@ -1,0 +1,4 @@
+media
+*/__pycache__
+tailwind.config.js
+.DS_Store
